@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Joy Laundry Services</title>
+  <meta name="description" content="Joy Laundry Services — commercial laundry equipment and support." />
+
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --panel:#101826;
+      --card:#0f1724;
+      --text:#e8eef7;
+      --muted:#a8b3c5;
+      --line:rgba(255,255,255,.10);
+      --accent:#4da3ff;
+      --accent2:#26d7b4;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:1100px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:var(--font);
+      background:
+        radial-gradient(1200px 700px at 15% 0%, rgba(77,163,255,.18), transparent 55%),
+        radial-gradient(900px 600px at 85% 10%, rgba(38,215,180,.12), transparent 50%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.45;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .container{max-width:var(--max);margin:0 auto;padding:0 20px}
+    .section{padding:54px 0}
+    .section.tight{padding:34px 0}
+    hr.sep{
+      border:none;height:1px;background:var(--line);
+      margin:0;
+    }
+
+    .topbar{
+      position:sticky;top:0;z-index:20;
+      background:rgba(11,15,20,.72);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:16px;padding:14px 0;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;min-width:160px;
+    }
+    .brand img{
+      width:110px;height:110px;object-fit:contain;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:12px;
+    }
+    .brand .title{display:flex;flex-direction:column;}
+    .brand .title strong{font-size:25px;letter-spacing:.2px}
+    .brand .title span{font-size:20px;color:var(--muted)}
+
+    .links{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .links a{
+      padding:10px 12px;border:1px solid transparent;border-radius:12px;
+      color:var(--muted);
+    }
+    .links a:hover{border-color:var(--line);color:var(--text)}
+    .links a.active{
+      border-color:rgba(77,163,255,.45);
+      color:var(--text);
+      background:rgba(77,163,255,.10);
+    }
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 14px;border-radius:14px;
+      border:1px solid rgba(77,163,255,.45);
+      background:rgba(77,163,255,.12);
+      color:var(--text);
+      box-shadow: 0 8px 22px rgba(77,163,255,.12);
+    }
+    .btn:hover{background:rgba(77,163,255,.18)}
+    .btn.secondary{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      box-shadow:none;
+    }
+    .btn.secondary:hover{background:rgba(255,255,255,.07)}
+
+    .hero{padding:62px 0 38px;}
+    .hero-grid{
+      display:grid;grid-template-columns: 1.2fr .8fr;gap:26px;align-items:stretch;
+    }
+    .hero-card{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      box-shadow:var(--shadow);
+      padding:26px;
+    }
+    .kicker{
+      color:var(--muted);
+      font-size:13px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+    h1{
+      margin:10px 0 10px;
+      font-size:40px;line-height:1.08;
+    }
+    .hero p{margin:0 0 16px;color:var(--muted);font-size:16px}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .badge{
+      font-size:12px;color:var(--muted);
+      border:1px solid var(--line);
+      padding:8px 10px;border-radius:999px;
+      background:rgba(255,255,255,.03);
+    }
+
+    .hero-media{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      overflow:hidden;
+      background:rgba(255,255,255,.03);
+      box-shadow:var(--shadow);
+      position:relative;
+    }
+    .hero-media .label{
+      position:absolute;left:14px;top:14px;
+      font-size:12px;color:var(--text);
+      background:rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.18);
+      padding:8px 10px;border-radius:999px;
+      backdrop-filter: blur(8px);
+    }
+    .hero-media img{
+      width:100%;height:100%;
+      object-fit:cover;
+      min-height:320px;
+      transform:scale(1.02);
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .card{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      border-radius:var(--radius);
+      padding:18px;
+    }
+    .card h3{margin:0 0 6px;font-size:16px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+
+    .split{
+      display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start;
+    }
+    .panel{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      border-radius:var(--radius);
+      padding:18px;
+    }
+    .panel h2{margin:0 0 10px;font-size:18px}
+    .panel p{margin:0;color:var(--muted)}
+    .list{
+      margin:12px 0 0;padding:0;list-style:none;
+      color:var(--muted);
+    }
+    .list li{padding:8px 0;border-top:1px solid rgba(255,255,255,.06)}
+    .list li:first-child{border-top:none}
+
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .tile{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      overflow:hidden;
+      background:rgba(255,255,255,.03);
+      cursor:pointer;
+      transition: transform .12s ease, border-color .12s ease;
+    }
+    .tile:hover{transform:translateY(-2px);border-color:rgba(77,163,255,.35)}
+    .tile img{width:100%;height:230px;object-fit:cover}
+    .tile .meta{padding:12px 12px 14px;}
+    .tile .meta strong{display:block;font-size:14px}
+    .tile .meta span{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+
+    .footer{padding:26px 0 40px;color:var(--muted);}
+    .footer .foot{
+      display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+      border-top:1px solid var(--line);
+      padding-top:16px;
+    }
+    .small{font-size:12px;color:var(--muted)}
+    .pill{
+      display:inline-flex;gap:8px;align-items:center;
+      padding:8px 10px;border:1px solid var(--line);
+      border-radius:999px;background:rgba(255,255,255,.03);
+    }
+    .notice{
+      border:1px dashed rgba(255,255,255,.22);
+      background:rgba(255,255,255,.03);
+      border-radius:var(--radius);
+      padding:14px 16px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+.contact-list{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-top:12px;
+}
+
+.contact-item{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  padding:14px 16px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:rgba(255,255,255,.04);
+  transition:all .15s ease;
+}
+
+.contact-item:hover{
+  border-color:rgba(77,163,255,.45);
+  background:rgba(77,163,255,.08);
+  transform:translateY(-2px);
+}
+
+.contact-item span{
+  font-size:13px;
+  color:var(--muted);
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+
+.contact-item strong{
+  font-size:15px;
+  color:var(--text);
+}
+
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 60px;
+}
+
+
+html { scroll-behavior: smooth; }
+
+/* Make anchor jumps land below the sticky header */
+:root { --header-offset: 140px; } /* adjust if needed */
+html { scroll-padding-top: var(--header-offset); }
+#home, #equipment, #contact { scroll-margin-top: var(--header-offset); }
+
+/* REMOVE this if header is sticky (not fixed) */
+/* body { padding-top: 60px; } */
+
+
+
+#home, #equipment, #contact {
+  scroll-margin-top: 8px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+    /* modal */
+    .modal{
+      position:fixed;inset:0;display:none;z-index:50;
+      background:rgba(0,0,0,.72);
+      align-items:center;justify-content:center;
+      padding:18px;
+    }
+    .modal.open{display:flex}
+    .modal-box{
+      max-width:1000px;width:100%;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(10,14,18,.92);
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 22px 60px rgba(0,0,0,.55);
+    }
+    .modal-top{
+      display:flex;justify-content:space-between;gap:10px;align-items:center;
+      padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.10);
+    }
+    .modal-title{font-size:13px;color:var(--muted)}
+    .modal-close{
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.05);
+      color:var(--text);
+      border-radius:12px;
+      padding:8px 10px;
+      cursor:pointer;
+    }
+    .modal-close:hover{background:rgba(255,255,255,.08)}
+    .modal-img{
+      width:100%;max-height:75vh;object-fit:contain;background:#000;
+    }
+
+    /* responsive */
+    @media (max-width: 920px){
+      .hero-grid{grid-template-columns:1fr}
+      h1{font-size:34px}
+      .grid-3{grid-template-columns:1fr}
+      .split{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr 1fr}
+      .tile img{height:220px}
+    }
+    @media (max-width: 520px){
+      .gallery{grid-template-columns:1fr}
+    }
+
+/* ---------- Mobile-friendly upgrades ---------- */
+img { max-width: 100%; height: auto; }
+
+/* If you have a fixed header, this prevents “jumping” anchors from hiding under it */
+:root { scroll-padding-top: 88px; } /* adjust if your header is taller/shorter */
+
+/* Make sections breathe */
+section { padding: 56px 0; }
+@media (max-width: 720px) {
+  section { padding: 38px 0; }
+}
+
+/* If you have a container class, keep it comfortable */
+.container {
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+}
+
+/* Equipment grid: responsive 3 → 2 → 1 */
+.equip-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+@media (max-width: 980px){
+  .equip-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px){
+  .equip-grid{ grid-template-columns: 1fr; }
+}
+
+/* Equipment tiles look more “store-like” */
+.equip-card{
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.equip-card img{
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+.equip-card .equip-body{
+  padding: 12px 12px 14px;
+}
+.equip-card h3{
+  margin: 0 0 6px;
+  font-size: 1.02rem;
+}
+.equip-card p{
+  margin: 0;
+  opacity: 0.85;
+  line-height: 1.35;
+  font-size: 0.95rem;
+}
+
+  </style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="container">
+    <div class="nav">
+      <a class="brand" href="#home">
+        <img src="images/Joy_logo.png" alt="Joy Laundry Services logo">
+        <div class="title">
+          <strong>Joy Laundry Services</strong>
+          <span>Used Commercial Laundry Equipment & Parts</span>
+        </div>
+      </a>
+
+      <nav class="links">
+        <a href="#home">Home</a>
+        <a href="#equipment">Equipment</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-card">
+          <div class="kicker">Reliable • Tested • Ready for Service</div>
+          <h1>Used commercial laundry equipment you can count on.</h1>
+          <p>
+            We specialize in used commercial washers, dryers, change machines, and replacement parts.
+            We help laundromat owners keep their business running without paying new-equipment prices.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn secondary" href="#equipment">View Equipment</a>
+            <a class="btn secondary" href="#contact">Get a Quote</a>
+          </div>
+
+          <div class="badges">
+            <div class="badge">Equipment sales</div>
+            <div class="badge">Parts & upgrades</div>
+            <div class="badge">Setup help</div>
+          </div>
+        </div>
+
+	<div class="hero-media">
+  	<div class="label">Our shop / inventory</div>
+ 	 <img src="images/20260105_120653.jpg" alt="Joy Laundry Services equipment">
+	</div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="sep">
+
+  <!-- 3 CARDS -->
+  <section class="section tight">
+    <div class="container">
+      <div class="grid-3">
+        <div class="card">
+          <h3>Quality inventory</h3>
+          <p>Listings are photo-first so you can decide fast. Actual inventory changes often. Contact us for a current list.</p>
+        </div>
+        <div class="card">
+          <h3>Honest guidance</h3>
+          <p>We’ll tell you what’s worth buying and what’s not. Honest descriptions of condition, age, and expected lifespan.</p>
+        </div>
+        <div class="card">
+          <h3>Easy upgrades</h3>
+          <p>We may be able to buy or take trade-in on your working used machines. We can often assist with removal, basic installation, and layout advice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO + CONTACT -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="split">
+        <div class="panel">
+          <h2>What we do</h2>
+          <p>
+            We help laundromat owners and operators find solid machines and practical solutions.
+            Inventory changes often, so check the equipment section below. Located in Los Angeles, we work with customers across the U.S.
+          </p>
+          <ul class="list">
+            <li>Quality used commercial washer/dryer equipment</li>
+            <li>Used change machines and accessories</li>
+            <li>Parts availability varies by week</li>
+          </ul>
+        </div>
+
+<div class="panel">
+  <h2>Contact</h2>
+
+  <div class="contact-list">
+
+    <a class="contact-item"
+       href="https://www.google.com/maps/search/?api=1&query=825+E+29th+St+Los+Angeles+CA+90011"
+       target="_blank">
+      <span>Address</span>
+      <strong>825 E 29th St<br>Los Angeles, CA 90011</strong>
+    </a>
+
+    <a class="contact-item"
+       href="tel:+12136751149">
+      <span>Phone</span>
+      <strong>(213) 675-1149</strong>
+    </a>
+
+    <a class="contact-item"
+       href="mailto:joylaundryservicesla@gmail.com">
+      <span>Email</span>
+      <strong>joylaundryservicesla@gmail.com</strong>
+    </a>
+
+  </div>
+</div>
+
+  </section>
+
+
+  <!-- EQUIPMENT -->
+  <section class="section tight" id="equipment">
+    <div class="container">
+      <div class="hero-card">
+        <div class="kicker">Equipment</div>
+        <h1 style="margin-top:10px">Current inventory (updates often)</h1>
+        <p style="margin-bottom:0">
+          Click any photo to enlarge. Inventory updates frequently — contact us for current availability and pricing.
+
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tight">
+    <div class="container">
+      <div class="gallery">
+
+        <div class="tile" data-title="Ipso 25lb Washer" data-src="images/ipso-25lb-washer.jpg">
+          <img src="images/ipso-25lb-washer.jpg" alt="Ipso 25lb washer">
+          <div class="meta">
+            <strong>Ipso 25lb Washer</strong>
+            <span>Click to enlarge</span>
+          </div>
+        </div>
+
+        <div class="tile" data-title="Dexter Stack Dryer" data-src="images/dexter-stack-dryer.jpg">
+          <img src="images/dexter-stack-dryer.jpg" alt="Dexter stack dryer">
+          <div class="meta">
+            <strong>Dexter Stack Dryer</strong>
+            <span>Click to enlarge</span>
+          </div>
+        </div>
+
+        <div class="tile" data-title="Change Machine" data-src="images/change-machine.jpg">
+          <img src="images/change-machine.jpg" alt="Change machine">
+          <div class="meta">
+            <strong>Change Machine</strong>
+            <span>Click to enlarge</span>
+          </div>
+        </div>
+
+        <div class="tile" data-title="Equipment Photo" data-src="images/20260105_120653.jpg">
+          <img src="images/20260105_120653.jpg" alt="Equipment photo 1">
+          <div class="meta">
+            <strong>Parts</strong>
+            <span>Photo</span>
+          </div>
+        </div>
+
+        <div class="tile" data-title="Equipment Photo" data-src="images/20260105_120723.jpg">
+          <img src="images/20260105_120723.jpg" alt="Equipment photo 2">
+          <div class="meta">
+            <strong>Parts</strong>
+            <span>Photo</span>
+          </div>
+        </div>
+
+        <div class="tile" data-title="Equipment Photo" data-src="images/20260105_120822.jpg">
+          <img src="images/20260105_120822.jpg" alt="Equipment photo 3">
+          <div class="meta">
+            <strong>Parts</strong>
+            <span>Photo</span>
+          </div>
+        </div>
+
+        <div class="tile" data-title="Shop / Inventory" data-src="images/outside1.jpg">
+          <img src="images/outside1.jpg" alt="Outside photo 1">
+          <div class="meta">
+            <strong>Shop / Inventory</strong>
+            <span>Photo</span>
+          </div>
+        </div>
+
+        <div class="tile" data-title="Shop / Inventory" data-src="images/outside2.jpg">
+          <img src="images/outside2.jpg" alt="Outside photo 2">
+          <div class="meta">
+            <strong>Shop / Inventory</strong>
+            <span>Photo</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="notice" style="margin-top:16px">
+       Specifications and pricing are available upon request.
+      </div>
+    </div>
+  </section>
+
+
+</main>
+
+<!-- Image modal -->
+<div class="modal" id="modal">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-label="Image preview">
+    <div class="modal-top">
+      <div class="modal-title" id="modalTitle">Preview</div>
+      <button class="modal-close" id="modalClose" type="button">Close</button>
+    </div>
+    <img class="modal-img" id="modalImg" alt="Preview">
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="foot">
+      <div class="small">© <span id="year"></span> Joy Laundry Services. All rights reserved.</div>
+      <div class="pill small">www.joylaundryla.com</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // active nav highlighting + year + modal
+  const yearEl = document.getElementById("year");
+  yearEl.textContent = new Date().getFullYear();
+
+  // Modal
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modalImg");
+  const modalTitle = document.getElementById("modalTitle");
+  const closeBtn = document.getElementById("modalClose");
+
+  function openModal(src, title){
+    modalImg.src = src;
+    modalTitle.textContent = title || "Preview";
+    modal.classList.add("open");
+  }
+  function closeModal(){
+    modal.classList.remove("open");
+    modalImg.src = "";
+  }
+
+  document.querySelectorAll(".tile").forEach(tile => {
+    tile.addEventListener("click", () => {
+      openModal(tile.dataset.src, tile.dataset.title);
+    });
+  });
+
+  closeBtn.addEventListener("click", closeModal);
+  modal.addEventListener("click", (e) => { if(e.target === modal) closeModal(); });
+  document.addEventListener("keydown", (e) => { if(e.key === "Escape") closeModal(); });
+
+  // Active link based on scroll (simple)
+  const navLinks = document.querySelectorAll(".links a");
+  const sections = [
+    { id: "home", el: document.getElementById("home") },
+    { id: "equipment", el: document.getElementById("equipment") },
+    { id: "contact", el: document.getElementById("contact") }
+  ];
+
+  function setActive(hash){
+    navLinks.forEach(a => a.classList.remove("active"));
+    const match = Array.from(navLinks).find(a => a.getAttribute("href") === hash);
+    if(match) match.classList.add("active");
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        setActive("#" + entry.target.id);
+      }
+    });
+  }, { rootMargin: "-50% 0px -45% 0px", threshold: 0.01 });
+
+  sections.forEach(s => s?.el && observer.observe(s.el));
+  setActive("#home");
+</script>
+
+</body>
+</html>
