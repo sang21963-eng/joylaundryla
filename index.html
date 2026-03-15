@@ -287,7 +287,17 @@ html, body {
   padding: 0;
 }
 
+.gradient1{
+  background: linear-gradient(90deg, #4da3ff, #26d7b4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
+.gradient2{
+  background: linear-gradient(90deg, #26d7b4, #4da3ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
     /* modal */
     .modal{
@@ -394,6 +404,104 @@ section { padding: 56px 0; }
   font-size: 0.95rem;
 }
 
+@media (max-width: 768px){
+  .nav{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .brand{
+    width: 100%;
+  }
+
+  .brand img{
+    width: 72px;
+    height: 72px;
+    padding: 8px;
+  }
+
+  .brand .title strong{
+    font-size: 20px;
+  }
+
+  .brand .title span{
+    font-size: 14px;
+  }
+
+  .links{
+    width: 100%;
+    justify-content: flex-start;
+    gap: 6px;
+  }
+
+  .links a{
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  h1{
+    font-size: 30px;
+    line-height: 1.15;
+  }
+
+  .hero{
+    padding: 32px 0 24px;
+  }
+
+  .hero-card,
+  .panel,
+  .card{
+    padding: 16px;
+  }
+
+  .section{
+    padding: 36px 0;
+  }
+
+  .section.tight{
+    padding: 24px 0;
+  }
+
+  .tile img{
+    height: 180px;
+  }
+
+  .contact-item strong{
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px){
+  .container{
+    padding: 0 14px;
+  }
+
+  .brand .title strong{
+    font-size: 18px;
+  }
+
+  .brand .title span{
+    font-size: 12px;
+  }
+
+  h1{
+    font-size: 26px;
+  }
+
+  .gallery{
+    grid-template-columns: 1fr;
+  }
+
+  .tile img{
+    height: 170px;
+  }
+
+  .hero-media img{
+    min-height: 220px;
+  }
+}
+
   </style>
 </head>
 
@@ -426,10 +534,15 @@ section { padding: 56px 0; }
       <div class="hero-grid">
         <div class="hero-card">
           <div class="kicker">Reliable • Tested • Ready for Service</div>
-          <h1>Used commercial laundry equipment you can count on.</h1>
+<h1>
+  Used commercial 
+  <span class="gradient1">laundry equipment</span> 
+  <span class="gradient2">you can count on.</span>
+</h1>
+
           <p>
             We specialize in used commercial washers, dryers, change machines, and replacement parts.
-            We help laundromat owners keep their business running without paying new-equipment prices.
+            We Buy & Sell Used Equipment and Parts Nationwide. Serving laundromat owners across the United States with affordable, quality used machines and replacement parts.
           </p>
 
           <div class="hero-actions">
